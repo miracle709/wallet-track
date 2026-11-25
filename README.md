@@ -47,10 +47,10 @@ All data comes from Polymarket's public, unauthenticated APIs — no API key nee
 
 ```bash
 npm install
-npm run dev          # starts the API + dashboard on http://localhost:8787, runs an initial refresh
+npm run dev          # starts the API + dashboard on http://localhost:8776, runs an initial refresh
 ```
 
-Open http://localhost:8787 to see the dashboard. Results stream in as soon as the first wallets are scored
+Open http://localhost:8776 to see the dashboard. Results stream in as soon as the first wallets are scored
 (no need to wait for the whole scan) — watch the progress bar, and use "Load more" to page through what's
 been found so far. Use the field tabs (Crypto / Esports / Sport / Finance / Weather), the "only green PnL"
 toggle, and the search box to filter. Click "Refresh now" to force an immediate re-scan.
@@ -83,7 +83,7 @@ All tunables are environment variables (see `src/config.ts` for defaults), e.g.:
 | `MIN_CLOSED_TRADES` | 5 | Minimum resolved trades before a win rate is shown (otherwise `n/a`) |
 | `DATA_API_CONCURRENCY` / `GAMMA_API_CONCURRENCY` | 6 | Concurrent requests against each upstream API |
 | `REFRESH_CRON` | `*/30 * * * *` | Cron schedule for automatic re-scans |
-| `PORT` | 8787 | Dashboard/API port |
+| `PORT` | 8776 | Dashboard/API port |
 | `DB_FILE` | `data/wallet-track.db` | SQLite database path |
 | `DEFAULT_PAGE_SIZE` | 200 | Dashboard's default batch size (`/api/wallets` page size) |
 | `PROGRESS_BROADCAST_EVERY` | 20 | How many wallets scored between each live-progress SSE push |

@@ -204,6 +204,7 @@ loadMoreBtn.addEventListener("click", () => loadWallets({ append: true }));
 refreshBtn.addEventListener("click", async () => {
   refreshBtn.disabled = true;
   refreshBtn.textContent = "Refreshing...";
+  state.awaitingManualRefresh = true;
   try {
     await fetch("/api/refresh", { method: "POST" });
   } finally {
