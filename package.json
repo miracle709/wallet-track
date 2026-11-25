@@ -1,0 +1,28 @@
+{
+  "name": "wallet-track",
+  "version": "1.0.0",
+  "description": "Polymarket smart-money wallet tracker - finds profitable wallets to copy-trade, ranked by PnL, win rate and PnL/volume, across crypto/esports/sport/finance/weather markets.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc -p tsconfig.json",
+    "refresh": "tsx src/refreshOnce.ts"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "p-limit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

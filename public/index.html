@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wallet Track — Polymarket Smart Money</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Wallet Track</h1>
+    <p class="subtitle">Profitable Polymarket wallets, ranked for copy-trading</p>
+    <div class="meta">
+      <span id="generatedAt">loading...</span>
+      <button id="refreshBtn">Refresh now</button>
+    </div>
+  </header>
+
+  <nav class="field-tabs" id="fieldTabs">
+    <button class="tab active" data-field="all">All</button>
+    <button class="tab" data-field="crypto">Crypto</button>
+    <button class="tab" data-field="esports">Esports</button>
+    <button class="tab" data-field="sport">Sport</button>
+    <button class="tab" data-field="finance">Finance</button>
+    <button class="tab" data-field="weather">Weather</button>
+  </nav>
+
+  <div class="controls">
+    <label class="toggle">
+      <input type="checkbox" id="onlyGreen" checked />
+      Only wallets with green 7d / 30d / total PnL
+    </label>
+    <form id="searchForm" class="search-form">
+      <input type="text" id="searchInput" placeholder="Search wallet address or name..." autocomplete="off" />
+      <button type="submit" id="searchBtn">Search</button>
+    </form>
+    <span class="count" id="countLabel"></span>
+  </div>
+  <p id="searchNote" class="search-note" hidden></p>
+
+  <div id="progressWrap" class="progress-wrap" hidden>
+    <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+    <span id="progressLabel" class="progress-label"></span>
+  </div>
+
+  <main>
+    <table id="walletTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Wallet</th>
+          <th>Field</th>
+          <th class="num">Daily PnL</th>
+          <th class="num">7d PnL</th>
+          <th class="num">30d PnL</th>
+          <th class="num">Total PnL</th>
+          <th class="num">Win rate</th>
+          <th class="num">Volume</th>
+          <th class="num">PnL / Volume</th>
+        </tr>
+      </thead>
+      <tbody id="walletBody">
+        <tr><td colspan="10" class="empty">Loading wallets...</td></tr>
+      </tbody>
+    </table>
+    <div class="load-more-wrap">
+      <button id="loadMoreBtn" hidden>Load more</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      Ranking priority: 1) PnL (must be green over 7d / 30d / total, ranked by total PnL)
+      &nbsp;&middot;&nbsp; 2) win rate &nbsp;&middot;&nbsp; 3) PnL / volume efficiency.
+      Data sourced live from Polymarket's public data &amp; gamma APIs.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
